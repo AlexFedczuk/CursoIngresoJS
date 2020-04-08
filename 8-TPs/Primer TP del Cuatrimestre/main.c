@@ -15,8 +15,8 @@ int main()
     int banderaPrimerOperador;
     int banderaSegundoOperador;
 
-    contadorPrimerOperador=0;
-    contadorSegundoOperador=0;
+    contadorPrimerOperador=1;
+    contadorSegundoOperador=1;
 
     printf("Eliga una operacion para ejecutar\n");
     printf("a-Sumar\n");
