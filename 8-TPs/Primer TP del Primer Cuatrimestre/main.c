@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int sumar(int x,int y);
+
 int main()
 {
     float primerOperador;
@@ -10,13 +12,13 @@ int main()
     float resultadoDivision;
     float resultadoMultiplicacion;
     char opcion;
-    int contadorPrimerOperador;
-    int contadorSegundoOperador;
-    int banderaPrimerOperador;
-    int banderaSegundoOperador;
+    int primerBandera;
+    int segundaBandera;
+    int resultadoFactorizadoX;
+    int resultadoFactorizadoY;
 
-    contadorPrimerOperador=1;
-    contadorSegundoOperador=1;
+    resultadoFactorizadoX=1;
+    resultadoFactorizadoY=1;
 
     printf("Eliga una operacion para ejecutar\n");
     printf("a-Sumar\n");
@@ -84,83 +86,20 @@ int main()
             break;
 
         case 'e':
+
             printf("Ingrese el primer operador: ");
             scanf("%f",&primerOperador);
 
             printf("Ingrese el segundo operador: ");
             scanf("%f",&segundoOperador);
 
-            banderaPrimerOperador=primerOperador;
+            for(primerBandera=1;primerBandera<=primerOperador;primerBandera++)
+                resultadoFactorizadoX=resultadoFactorizadoX*primerBandera;
 
-            if(primerOperador>0)
-            {
-               do
-                {
-                    banderaPrimerOperador=banderaPrimerOperador-1;
+            for(segundaBandera=1;segundaBandera<=segundoOperador;segundaBandera++)
+                resultadoFactorizadoY=resultadoFactorizadoY*segundaBandera;
 
-                    primerOperador=primerOperador*banderaPrimerOperador;
-
-                    contadorPrimerOperador++;
-                }
-                while(contadorPrimerOperador!=primerOperador);
-            }else
-            {
-                if(primerOperador<0)
-                {
-                   do
-                    {
-                        banderaPrimerOperador=banderaPrimerOperador+1;
-
-                        primerOperador=primerOperador*(-(banderaPrimerOperador));
-
-                        contadorPrimerOperador=-(contadorPrimerOperador)-1;
-                    }
-                    while(contadorPrimerOperador!=primerOperador);
-                }else
-                {
-                    if(primerOperador==0)
-                    {
-                        primerOperador=1;
-                    }
-                }
-            }
-
-            banderaSegundoOperador=segundoOperador;
-
-            if(segundoOperador>0)
-            {
-               do
-                {
-                    banderaSegundoOperador=banderaSegundoOperador-1;
-
-                    segundoOperador=segundoOperador*banderaSegundoOperador;
-
-                    contadorSegundoOperador++;
-                }
-                while(contadorSegundoOperador!=segundoOperador);
-            }else
-            {
-                if(segundoOperador<0)
-                {
-                   do
-                    {
-                        banderaSegundoOperador=banderaSegundoOperador+1;
-
-                        segundoOperador=segundoOperador*(-(banderaSegundoOperador));
-
-                        contadorSegundoOperador=-(contadorSegundoOperador)-1;
-                    }
-                    while(contadorSegundoOperador!=segundoOperador);
-                }else
-                {
-                    if(segundoOperador==0)
-                    {
-                        segundoOperador=1;
-                    }
-                }
-            }
-
-            printf("El factorial de x es: %.2f y El factorial de y es: %.2f\n",primerOperador,segundoOperador);
+            printf("El factorial de x es: %d y el factorial de y es: %d",resultadoFactorizadoX,resultadoFactorizadoY);
             break;
 
         default:
@@ -172,4 +111,9 @@ int main()
 
 
     return 0;
-}//Esta seria LA calculadora que debo terminar, me falta meter cada funcion opercion en una funcion y a una biblioteca...
+}
+
+int sumar(int x,int y)
+{
+
+}
